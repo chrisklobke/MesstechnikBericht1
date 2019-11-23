@@ -439,11 +439,137 @@ $F_{Lin} = 0,511\%$
 \section{Aufgabe 3}
 \subsection{Einfluss des Leitungswiderstandes}
 \subsubsection{Aufgabenstellung}
-Mithilfe eines Pt 100-Simulators sollen in diesem Versuch verschiedene Temperaturen simuliert werden und mit der Zweileiter- und Vierleitertechnik die Spannungen gemessen werden. \\
-Außerdem wird der Widerstandswert des Pt 100-Simulators in der Vierleitertechnik direkt gemessen. 
+In diesem Versuch wird untersucht wie sich der Leitungswiderstand auf die Zweileiter- Vierleiter- und die Direktmessung auswirkt.
 \subsubsection{Versuchsaufbau}
+Im ersten Teil der Aufgabe wird eine Wheatstonsche Brücke mit Zweileitertechnik und dem PT100-Simulator anstatt eines PT100 aufgebaut.
+\begin{center}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Bilder/WheatstonscheBrücke.png}
+\caption{Wheatstonsche  Brücke mit Zweileitertechnik}
+\end{figure}
+\end{center}
+
+Um herauszufinden welchen Einfluss die Leitungswiderstände $R_L$ auf die Messung haben, werden diese durch stufenweise einstellbare Widerstände simuliert. \\\\
+Der Versuchsaufbau, ist im zweiten Teil wie in der folgenden Abbildung dargestellt aufzubauen.
+\vspace{1cm}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Bilder/4Leitertechnik.png}
+\caption{Vierleitertechnik}
+\end{figure}
+Im letzten Teil der Aufgabe wird dann der PT100-Simulator mit Vierleitertechnik direkt an das digitale Multimeter angeschlossen.\\
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Bilder/4LTDIMM.png}
+\caption{Widerstandsmessung mit dem Multimeter}
+\end{figure}
+
 \subsubsection{Durchführung}
+Nach korrektem Aufbau der Wheatstonschen Messbrücke wird die Spannungsspeisung $U_0$ auf 0V und der PT100-Simmulator auf $100^\circ C$ eingestellt. Als nächstes werden die Potenziometer die die Leitungswiderstände simulieren auf $0\Omega$ eingestellt. Zu dem Zeitpunkt wird die Brückenspannung notiert. Die Potenziometer werden daraufhin auf $ 1\Omega; 5,1\Omega; 10\Omega $ und $ 22,1\Omega$ eingestellt.\\
+Nach erfolgreicher Messung wird dann die Vierleitertechnik  aufgebaut und die Stromspeisung auf $I_0=10mA$ eingestellt. Daraufhin werden dann die Potenziometer wie beim Aufgabenteil zuvor erhöht und die Messwerte aufgenommen.\\
+Die Messung mit dem PT100-Simulator direkt am Multimeter wird auf die selbe Art und Weise durchgeführt. 
 \subsubsection{Messergebnisse}
+Die aufgenommenen Messwerte werden in der folgenden Tabelle Dargestellt.\\
+\begin{center}
+\begin{tabular}{|c|r|r|r|}
+\hline 
+$R_L/\Omega $ & $U_{B}$/mV & $U_{T}$/V & DMM/$\Omega$ \\ 
+\hline 
+0 & 167,203 & 1,385 & 138,412 \\ 
+\hline 
+1 & 170,564 & 1,385 & 138,412 \\ 
+\hline 
+5,1 & 198,582 & 1,385 & 138,412 \\ 
+\hline 
+10 & 228,791 & 1,385 & 138,413 \\ 
+\hline 
+22,1 & 293,792 & 1,385 & 138,421 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\vspace{1cm}
+Um nun aus den gemessenen Spannungen die Widerstandswerte zu berechnen werden volgende Formeln benötigt:\\\\
+Wheatstonschen Brücke:\\
+\begin{center}
+$R(PT100)= \frac{U_0+2U_B}{U_0-2U_B}\cdot 100\Omega$
+
+\end{center}
+4-Leitertechnik:\\
+mit $R=100\Omega$\\
+\begin{center}
+$R=\frac{U_T}{I}$
+\end{center}
+Die Ergebnisse dieser Rechnungen sind in der folgenden Tabelle dargestellt.\\
+$R_B$ entspricht dem Wert der Wheatstonschen Brück und $R_T$ entspricht dem Wert der Vierleitertechnik.
+\begin{center}
+\begin{tabular}{|c|r|r|}
+\hline 
+$R_L/\Omega$ & $R_B/\Omega$ & $R_T/\Omega$ \\ 
+\hline 
+0 & 140,155 & 135,5 \\ 
+\hline 
+1 & 141,128 & 135,5 \\ 
+\hline 
+5,1 & 149,558 & 135,5 \\ 
+\hline 
+10 & 159,333 & 135,5 \\ 
+\hline 
+22,1 & 183,203 & 135,5 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Um nun die entsprechenden Temperaturen der Widerstandswerte zu errechnen muss die folgende quadratische Gleichung nach T umgestellt werden.\\
+\begin{center}
+$R_T=R_0(1+\alpha \cdot T+\beta \cdot T^2)$
+\end{center}
+Die errechneten Temperaturwerte werden in folgender Tabelle veranschaulicht.
+\begin{center}
+\begin{tabular}{|c|r|r|r|}
+\hline 
+$R_L/\Omega$ & $T_B/^\circ C$ & $T_T/^\circ C$ & $T_{DMM}/^\circ C$ \\ 
+\hline 
+0 & 104,367& 92,098 & 99,768 \\ 
+\hline 
+1 & 106,938 & 92,098 & 99,768 \\ 
+\hline 
+5,1 & 129,293 & 92,098 & 99,768 \\ 
+\hline 
+10 & 155,409 & 92,098 & 99,771 \\ 
+\hline 
+22,1 & 220,095 & 92,098 & 99,792 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\vspace{1cm}
+Anhand diesen Temperaturwerten und der folgenden Formel lassen sich die jeweiligen Messfehler errechnen.\\
+\begin{center}
+$F(R_L)=\frac{T'(RL)-100^\circ C}{100^\circ C}\cdot 100\%$
+\end{center}
+\vspace{1cm}
+\begin{center}
+\begin{tabular}{|c|r|r|r|}
+\hline 
+$R_L$ & $F_B/\%$ & $F_T/\%$ & $F_{DDM}/\%$ \\ 
+\hline 
+0 & 4,367 & -7,902 & -0,232 \\ 
+\hline 
+1 & 6,938 & -7,902 & -0,232 \\ 
+\hline 
+5,1 & 29,293 & -7,902 & -0,232 \\ 
+\hline 
+10 & 55,409 & -7,902 & -0,229 \\ 
+\hline 
+22,1 & 120,095 & -7,902 & -0,208 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.7]{Bilder/Diagramm_Messabweichungen.png}
+\caption{Messabweichungen}
+\end{figure}
+
 \subsubsection{Fazit}
 
 
