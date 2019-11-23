@@ -376,9 +376,63 @@ Außerdem zu erkennen ist, dass die Konstante $\beta$ bei beiden Widerstandsther
 \subsubsection{Aufgabenstellung}
 Bei diesem Versuch sollen die Spannungen des Thermoelements bei gegebenen Temperaturen aufgenommen werden. Zur Temperatur-Regulation stand auch hier ein Kalibrierofen zur Verfügung. \\
 \subsubsection{Versuchsaufbau}
-
+Das Thermoelement befindet sich auch hier zu Beginn des Versuchs im Kalibrierofen. Dieses Thermoelement ist über zwei Leiterkabel direkt an das Digitalmultimeter angeschlossen. \\
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{Bilder/Aufg2Schaltbild1.png}
+\caption{Thermoelement Schaltbild}
+\end{figure}
 \subsubsection{Durchführung}
+Zu Beginn des Versuchs wird die Spannung am Thermoelement bei Raumtemperatur aufgenommen. Die Temperatur im Ofen wird mit $\Delta T = 60K$ erhöht und die Thermospannungen aufgenommen. 
 \subsubsection{Messergebnisse}
+Die aufgenommenen Messwerte sind dem folgenden Diagramm und der Tabelle zu entnehmen.
+
+\begin{center}
+\begin{tabular}{|c|r|r|}
+\hline 
+T Ist/$^\circ C$ & Thermo/mV & Regression/mV \\ 
+\hline 
+21,119 & 0,842 & 0,890 \\ 
+\hline 
+61,556 & 2,520 & 2,527\\ 
+\hline 
+120,833 & 4,986 & 4,928\\ 
+\hline 
+180,624 & 7,378 & 7,350\\ 
+\hline 
+241,030 & 9,756 & 9,796\\ 
+\hline 
+301,233 & 12,200 & 12,234\\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{Bilder/Aufg2Diagramm.png}
+\caption{Thermoelement Spannungskennlinie}
+\end{figure}
+
+Regressionsgerade:
+\begin{center}
+$U_{th}(T) = U_{th}(T=0^\circ C) + a \cdot T$
+$U_{th}(T) = 0,0344 + 0,0405 \cdot T$
+\end{center}
+
+Der Parameter $U_{th}$ steht hierbei für die Thermospannung bei einer Temperatur von $T = 0^\circ C$, während a die Empfindlichkeit der Regressionsgeraden angibt. Die Empfindlichkeit des Thermoelements beträgt $\frac{0,0405 mV}{1 ^\circ C}$.
+
+\newpage
+
+Linearitätsfehler:
+
+\begin{center}
+$F_{Lin} = \frac{U_{Messung}(T) - U_{Gerade}(T)}{U_{Messung}(T_{max}) - U_{Messung}(T_{min})}\cdot 100\%$\\
+\vspace{0.5cm}
+$F_{Lin} = \frac{4,986mV - 4,928mV}{12,200mV-0,842mV}\cdot 100\%$\\
+\vspace{0.5cm}
+$F_{Lin} = 0,511\%$
+\end{center}
+
 \subsubsection{Fazit}
 
 
