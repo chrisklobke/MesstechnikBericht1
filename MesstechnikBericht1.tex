@@ -36,7 +36,7 @@
 \fancyhf{}
 \fancyhfoffset{0.5mm}
 \fancyhead[L]{MTS}
-\fancyhead[C]{Untersuchungen an der 4..20mA Stromschnittstelle}
+\fancyhead[C]{Temperaturmessung mit PT100 und Thermoelement}
 \fancyhead[R]{\thepage}
 
 \fancyfoot[C]{Technische Hochschule L\"ubeck}
@@ -230,20 +230,153 @@ Messtechnik und Sensorik
 \newpage
 \section{Vorbereitung}
 \subsection{Aufgabenstellung}
-\subsection{Fazit}
+Zur Vorbereitung lag die Aufgabe erstens darin, den Widerstand der Pt100 bei einer Raumtemperatur von $25^ \circ C$ und zweitens die Spannung des Thermoelements bei selbiger Temperatur zu ermitteln.
+\subsection{Durchführung und Messergebnisse}
+a)\\
+Mithilfe der Taylorreihe und den Temperaturkoeffizienten des Pt100, $\alpha = 3,90802   \cdot 10^{-3} {}^\circ C^{-1}$ und $\beta = -5,80195 \cdot 10^{-7} {}^\circ C^{-2}$, lässt sich der Widerstandswert des Pt100 bei einer Temperatur von $T = 25^\circ C$ bestimmen.
+
+\begin{center}
+$R_t = R_0 \cdot (1 + \alpha \cdot T + \beta \cdot T^2)$ \\
+$R_t = 100 \Omega \cdot (1 + 3,90802 \cdot 10^{-3} {}^\circ C^{-1} - 5,80195 \cdot 10^{-7}{}^\circ C ^{-2} \cdot 25 ^\circ C ^2)$ \\
+$R_t = 109,734 \Omega$
+\end{center}
+b)\\
+Da die Kirchhoffsche Maschenregel besagt, dass die Summe aller Teilspannungen null ergibt, lässt sich für die Masche eines Thermoelements folgende Gleichung aufstellen: 
+\begin{center}
+$U_{A,B} + k_{B,A} \cdot T_M = 0$
+\end{center}
+$k_{A,B} \cdot T_M$ ergibt hierbei das Spannungspotential zwischen den beiden Metallen des Thermoelements.\\
+Nach Umstellen lässt sich die Spannung $U_{A,B}$ bestimmen.
+\begin{center}
+$U_{A,B} = k_{A,B} \cdot T_M = \frac{4,095mV}{100K} \cdot 25^\circ C = 1,024mV$
+\end{center}
 
 \section{Aufgabe 1}
 \subsection{Widerstandsthermometer}
 \subsubsection{Aufgabenstellung}
+Beim ersten Versuch bestand die Aufgabe daraus, die Widerstandswerte der vorhandenen zwei Pt 100-Widerstandsthermometer bei gegebenen Temperaturen zu messen. Zur Temperatur-Regulation stand ein Kalibrierofen zur Verfügung. \\
 \subsubsection{Versuchsaufbau}
+Die beiden Widerstandsthermometer (Pt 100 Ref und Pt 100) werden im Ofen platziert. Der kalibrierte Referenz Pt 100 wird mit einer Vierleitertechnik am Multimeter angeschlossen, der unkalibrierte Pt 100 mit einer Zweileitertechnik. \\ 
+Der Referenz Pt 100 dient hierbei zur exakten Bestimmung der Temperatur innerhalb des Ofens. 
 \subsubsection{Durchführung}
+Als erstes werden die Widerstandswerte der beiden Widerstandsthermometer bei Raumtemperatur aufgenommen. Anschließend wird die Temperatur innerhalb des Ofens so eingestellt, dass neben des Widerstandswertes bei Raumtemperatur, Werte zwischen $60^\circ C$ und  $300^\circ C$ in Schritten von $\Delta T = 60K$ aufgenommen werden können. 
 \subsubsection{Messergebnisse}
+Die Messwerte sind folgendem Diagramm und der Tabelle zu entnehmen. \\
+\begin{center}
+\begin{tabular}{|c|r|r|r|}
+\hline 
+T Ist/$^\circ C$ & Pt 100 Ref/$\Omega$ & Pt 100/$\Omega$ & Regression/$\Omega$ \\ 
+\hline 
+21,119 & 108,244 & 109,133 & 110,770 \\ 
+\hline 
+61,556 & 123,843 & 124,865 & 125,744 \\ 
+\hline 
+120,833 & 146,397 & 147,493 & 143,991 \\ 
+\hline 
+180,624 & 168,735 & 170,016 & 169,835 \\ 
+\hline 
+241,030 & 190,883 & 191,949 & 192,203 \\ 
+\hline 
+301,233 & 212,537 & 213,621 & 214,497 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{Bilder/Aufg1Diagramm.png}
+\caption{Pt 100 Messwerte}
+\end{figure}
+\newpage
+
+Regressionsgerade:
+\begin{center}
+$R(T) = a + bT = 101,91 + 0,3731 \frac{\Omega}{{}^\circ C} \cdot T$
+\end{center}
+Der Parameter a steht hierbei für den Widerstandswert der Regression bei $T = 0^\circ C$. \\
+m ist bei linearem Verlauf die Empfindlichkeit. Somit steigt der Widerstandswert des Pt 100 um $\frac{0,3731 \Omega}{1 ^\circ C}$. 
+\\\\
+Mithilfe der Regressionsgeraden lässt sich ein Bestimmtheitsmaß $R^2$ ermitteln. 
+\begin{center}
+$R^2 = 0,9998$
+\end{center}
+Linearitätsfehler:
+\begin{center}
+$F_{Lin} = \frac{R_{Messung}(T) - R_{Regression}(T)}{R_{Messung}(T_{max}) - R_{Messung}(T_{min})}\cdot 100\%$\\
+\vspace{0.5cm}
+$F_{Lin} = \frac{170,016\Omega - 169,301 \Omega}{213,621\Omega - 109,133\Omega}\cdot 100\%$\\
+\vspace{0.5cm}
+$F_{Lin} = 0,684 \%$
+\end{center}
+
+Folgend ist der Linearitätsfehler in Abhängigkeit der Temperatur zu erkennen.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{Bilder/Aufg1Diagramm2.png}
+\caption{Fehlerkennlinie}
+\end{figure}
+
+Berechnung der Konstanten:\\
+Zur Bestimmung der Konstanten der Widerstandsthermometer wird folgendes Polynom betrachtet:
+
+\begin{center}
+$R_t = R_0 \cdot (1 + \alpha \cdot T + \beta \cdot T^2)$
+\end{center}
+
+Da bei niedrigen Temperaturen der quadratische Term zu vernachlässigen ist, kann dieser zur Vereinfachung weggelassen werden.
+
+\begin{center}
+$R_t = R_0 \cdot (1 + \alpha \cdot T)$
+\end{center}
+ 
+Mit den zwei niedrigsten Temperaturen der gemessenen Werte können zwei Gleichungen erstellt und somit das $\alpha$ errechnet werden. 
+
+\begin{center}
+$\alpha = 3,855 \cdot 10^{-3}$
+\end{center}
+
+Anhand dieses Alphas lässt sich anschließend $R_0$ bestimmen.
+
+\begin{center}
+$R_0 = \frac{R}{1 + \alpha T} = \frac{124,865\Omega}{1 + 3,855 \cdot 10^{-3} \cdot 61,5564^\circ C}$\\
+\vspace{0.5cm}
+$R_0 = 100,917^\circ C$
+\end{center}
+
+Mithilfe von $R_0$ und $\alpha$ lässt sich $\beta$ bestimmen. Hierzu wird $T_{300} = 301,233^\circ C$ bestimmt.
+\begin{center}
+$\beta = \frac{R_{300} - R_0(1+\alpha \cdot T_{300})}{R_0 \cdot T_{300}^2}$\\
+\vspace{0.5cm}
+$\beta = \frac{213,621 \Omega - 100\Omega (1+ 3,855\cdot 10^{-3} \cdot 301,233)}{213,621 \cdot 301,233^2}$\\
+\vspace{0.5cm}
+$\beta = -1,2919 \cdot 10^{-7}$
+\end{center}
+
+Mit dem selbigen Verfahren lassen sich diese Konstanten ebenfalls für den Pt 100 Ref bestimmen. Die Konstanten für beide Widerstandsthermometer werden in der folgenden Tabelle dargestellt.\\
+\begin{center}
+\begin{tabular}{|c|r|r|r|}
+\hline 
+ & $R_0 / \Omega$ & $\alpha/^\circ C^{-1}$ & $\beta / ^\circ C ^{-2}$ \\ 
+\hline 
+Datenblatt & 100 & $3,9080 \cdot 10 ^{-3}$ & $-5,80195 \cdot 10^{-7}$ \\ 
+\hline 
+PT100 & $100,917$ & $3,855 \cdot 10^{-3}$ & $-1,2319 \cdot 10^{-7}$ \\ 
+\hline 
+PT100 Ref & $100,066$ & $3,86 \cdot 10^{-3}$ & $-1,9390 \cdot 10^{-7}$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
 \subsubsection{Fazit}
+Wie zu erwarten, ist das kalibrierte Referenz-Widerstandsthermometer Pt 100 Ref genauer als der nicht kalibrierte Pt 100. Grund hierfür ist unter anderem, der Einsatz der Zweileitertechnik beim nicht kalibrierten Pt 100, während beim Pt 100 Ref die Vierleitertechnik zum Einsatz kommt. \\
+Zu erkennen ist dies vor allem an den konstanten Temperaturkoeffizienten, da sowohl $R_0$, als auch $\alpha$ des kalibrierten Widerstandsthermometer nur gering von den aus dem Datenblatt angegebenen Konstanten abweicht. Auch die Werte des nicht kalibrierten Pt 100 weichen nur leicht von den idealen Werten ab. Ein signifikanter Unterschied zum kalibrierten ist jedoch gerade bei den dargestellten Messwerten zu erkennen. Die Zweileitertechnik weist dort eine leicht positive Differenz zu jedem Idealwert auf. Grund dafür ist der in der Zweileitertechnik relevante Leitungswiderstand.\\\\
+Außerdem zu erkennen ist, dass die Konstante $\beta$ bei beiden Widerstandsthermometern stark vom Idealwert abweicht. Das liegt daran, dass der quadratische Koeffizient bei, in diesem Versuch vorkommenden Maximaltemperaturen, kaum eine Rolle spielt. Dieser ist jedoch vor allem bei Temperaturen bis zu $850^\circ C$ relevant. 
 
 \section{Aufgabe 2}
 \subsection{Thermoelement}
 \subsubsection{Aufgabenstellung}
+Bei diesem Versuch sollen die Spannungen des Thermoelements bei gegebenen Temperaturen aufgenommen werden. Zur Temperatur-Regulation stand auch hier ein Kalibrierofen zur Verfügung. \\
 \subsubsection{Versuchsaufbau}
+
 \subsubsection{Durchführung}
 \subsubsection{Messergebnisse}
 \subsubsection{Fazit}
@@ -252,12 +385,17 @@ Messtechnik und Sensorik
 \section{Aufgabe 3}
 \subsection{Einfluss des Leitungswiderstandes}
 \subsubsection{Aufgabenstellung}
+Mithilfe eines Pt 100-Simulators sollen in diesem Versuch verschiedene Temperaturen simuliert werden und mit der Zweileiter- und Vierleitertechnik die Spannungen gemessen werden. \\
+Außerdem wird der Widerstandswert des Pt 100-Simulators in der Vierleitertechnik direkt gemessen. 
 \subsubsection{Versuchsaufbau}
+\subsubsection{Durchführung}
+\subsubsection{Messergebnisse}
 \subsubsection{Fazit}
 
 
 \section{Aufgabe 4}
-\subsection{Eigenschaften der Stromschnittstelle}
+\subsection{Sprungantwort}
+In diesem Versuch wird das Zeitverhalten des Pt 100-Widerstandsthermometers und eines NiCr-Ni-Thermoelements mithilfe eines kochenden Wasserbads untersucht. 
 \subsubsection{Aufgabenstellung}
 \subsubsection{Versuchsaufbau}
 \subsubsection{Durchführung}
