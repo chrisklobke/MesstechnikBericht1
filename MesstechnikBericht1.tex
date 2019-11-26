@@ -163,8 +163,8 @@
 %\usepackage{amssymb}
 %\usepackage[left=3cm,right=3cm,top=3cm,bottom=2cm]{geometry}
 \author{von Roman Weber, Chris Klobke\\Betreuer: Prof. Dr.-Ing. Jochen Abke, Joachim Kaczmareck}
-\title{Messtechnik und Sensorik\\Untersuchungen an der 4..20mA Schnittstelle}
-\date{24. Oktober 2019}
+\title{Messtechnik und Sensorik\\Temperaturmessung mit PT100 und Thermoelement}
+\date{14. November 2019}
 
 %\usepackage{graphicx}
 
@@ -190,8 +190,8 @@ Messtechnik und Sensorik
 
 \begin{center}
 
-\LARGE\textbf{Untersuchungen an der 4..20mA Stromschnittstelle} \\
-\LARGE\textbf{Praktikumsversuch 2} \\
+\LARGE\textbf{Temperaturmessung mit PT100 und Thermoelement} \\
+\LARGE\textbf{Praktikumsversuch 1} \\
 \LARGE\textbf{WiSe 19/20} \\
 
 \vspace{2.0cm}
@@ -206,7 +206,7 @@ Messtechnik und Sensorik
   Betreuer: & Prof. Dr.-Ing. Jochen Abke & (jochen.abke@th-luebeck.de) \\
   			& Joachim Kaczmareck & (joachim.kaczmareck@th-luebeck.de) \\
   Version: & 1.0 & \\
-  Versuchstermin: & 24. Oktober 2019 & \\
+  Versuchstermin: & 14. November 2019 & \\
 \end{tabular}
 
 \vspace{1.0cm}
@@ -434,7 +434,7 @@ $F_{Lin} = 0,511\%$
 \end{center}
 
 \subsubsection{Fazit}
-
+Zu erkennen ist, dass sowohl der Pt 100 als auch das Thermoelement ihre größten Abweichungen zur Regression im mittleren Temperaturbereich besitzen ($120^\circ C - 140^\circ C$). Bei einer Temperatur von $120^\circ C$ ist die Abweichung des Thermoelements mit 0,511\% sogar großer als die des Pt 100 (0,479\%). Ansonsten ist das Thermoelement jedoch, vor allem im höheren Temperaturbereich, deutlich genauer.
 
 \section{Aufgabe 3}
 \subsection{Einfluss des Leitungswiderstandes}
@@ -575,13 +575,73 @@ $R_L$ & $F_B/\%$ & $F_T/\%$ & $F_{DDM}/\%$ \\
 
 \section{Aufgabe 4}
 \subsection{Sprungantwort}
-In diesem Versuch wird das Zeitverhalten des Pt 100-Widerstandsthermometers und eines NiCr-Ni-Thermoelements mithilfe eines kochenden Wasserbads untersucht. 
 \subsubsection{Aufgabenstellung}
+In diesem Versuch wird das Zeitverhalten des Pt 100-Widerstandsthermometers und eines NiCr-Ni-Thermoelements mithilfe eines kochenden Wasserbads untersucht. 
 \subsubsection{Versuchsaufbau}
+Der Pt 100 und das Thermoelement, welches elektronisch kompensiert wird, befinden sich zu Versuchsbeginn an einem Metallstab. Beide befinden sich bei Raumtemperatur. Das Wasserbad befindet sich auf einer Heizvorrichtung, mit der dieses zum Kochen gebracht werden kann. 
 \subsubsection{Durchführung}
+Gleichzeitig werden das Widerstandsthermometer und das Thermoelement in ein kochendes Waserbad platziert und mithilfe einer Computerschnittstelle und einer Software die Temperaturen der Bauteile dokumentiert. 
 \subsubsection{Messergebnisse}
-\subsubsection{Fazit}
+In der folgender Grafik ist das zeitliche Temperaturverhalten des Pt 100 und des NiCr-Ni-Thermoelements zu erkennen.
+\begin{center}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=1]{Bilder/temperaturverhalten.png}
+\caption{Temperaturverhalten}
+\end{figure}
+\end{center}
+Berechnung $t_{90}$ und $t_{10}$:\\
+\begin{center}
+$\Delta t_{Pt100} = t_{Pt100_{max}} - t_{Pt100_{min}} = 96^\circ C - 20,3^\circ C = 75,7^\circ C$\\
+$\Delta t_{Thermo} = t_{Thermo_{max}} - t_{Thermo_{min}} = 95,8^\circ C - 20,5^\circ C = 75,3^\circ C$\\
+\vspace{0.5cm}
+$T(t_{Pt100_{10}}) = \Delta t_{Pt100} \cdot 10\% + t_{Pt100_{min}}$\\
+$T(t_{Pt100_{10}}) = 75,7^\circ C \cdot 10\% + 20,3^\circ C = 27,87^\circ C$\\
+$=> t_{Pt100_{10}} = 5,11s$\\
+\vspace{0.5cm}
+$T(t_{Thermo_{10}}) = \Delta t_{Thermo} \cdot 10\% + t_{Thermo_{min}}$\\
+$T(t_{Thermo_{10}}) = 75,3^\circ C \cdot 10\% + 20,5^\circ C = 28,03^\circ C$\\
+$=> t_{Thermo_{10}} = 5,12s$\\
+\vspace{0.5cm}
+$T(t_{Pt100_{90}}) = \Delta t_{Pt100} \cdot 90\% + t_{Pt100_{min}}$\\
+$T(t_{Pt100_{90}}) = 75,7^\circ C \cdot 90\% + 20,3^\circ C = 88,43^\circ C$\\
+$=> t_{Pt100_{90}} = 2,14s$\\
+\vspace{0.5cm}
+$T(t_{Thermo_{90}}) = \Delta t_{Thermo} \cdot 90\% + t_{Thermo_{min}}$\\
+$T(t_{Thermo_{90}}) = 75,3^\circ C \cdot 90\% + 20,5^\circ C = 88.27^\circ C$\\
+$=> t_{Thermo_{90}} = 2,075s$\\
+\end{center}
+Ansprechzeit:\\
+\begin{center}
+$t_{Pt100_{An}} = t_{Pt100_{90}} - t_{Pt100_{10}}$\\
+$t_{Pt100_{An}} = 5,11s-2,14s=2,97s$\\
+\vspace{0.5cm}
+$t_{Thermo_{An}} = t_{Thermo_{90}} - t_{Thermo_{10}}$\\
+$t_{Thermo_{An}} = 5,12s-2,075s = 3,045s$\\
 
-\section{Abschließendes Fazit}
+\end{center}
+
+Berechnung $\tau$:\\
+\begin{center}
+$\tau_{Pt100} = \frac{t_{Pt100_{An}}}{ln(9)}$\\
+$\tau_{Pt100} = \frac{2,97s}{ln(9)} = 1,352s$\\
+\vspace{0.5cm}
+$\tau_{Thermo} = \frac{t_{Thermo_{An}}}{ln(9)}$\\
+$\tau_{Thermo} = \frac{3,045s}{ln(9)} = 1,386s$\\
+\end{center}
+Berechnung $t_{0,90}$:\\
+
+\begin{center}
+$t_{Pt100} = -ln(0,1)\cdot \tau_{Pt100}$\\
+$t_{Pt100} = -ln(0,1)\cdot 1,352s = 4,50s$\\
+\vspace{0.5cm}
+$t_{Thermo} = -ln(0,1)\cdot \tau_{Thermo}$\\
+$t_{Thermo} = -ln(0,1)\cdot 1,386s = 4,58s$
+\end{center}
+
+
+\subsubsection{Fazit}
+Es ist zu erkennen, dass die Kennlinien, trotz etwas größeren Differenzen zwischen 3 und 8 Sekunden, nahezu gleich sind. Bei ungefähr 10 Sekunden befinden sich der Pt 100 und das Thermoelement bei fast exakt der selben Temperatur. Auch anhand sehr ähnlichen Ergebnissen der Berechnungen ist festzustellen, dass sich Pt 100 und das Thermoelement sehr ähneln. \\
+Somit ist zu dem Entschluss zu kommen, dass sich beide Bauelemente zur Temperaturmessung sehr gut eignen. 
 
 \end{document}
